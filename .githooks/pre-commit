@@ -1,0 +1,17 @@
+#!/bin/sh
+
+files=$(git diff --cached --name-only --diff-filter=AM)
+
+for file in $files; do
+  # Skip deleted files
+  [ ! -f "$file" ] && continue
+
+  # Check if file is empty
+  if [ ! -s "$file" ]; then
+    echo "Error: '$file' is empty."
+    echo "Remove it or add content before committing."
+    exit 1
+  fi
+done
+
+exit 0
