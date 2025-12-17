@@ -1,4 +1,5 @@
 **Setup:**
+(after cloning the repo)
 
 **1. Setup git to use the ".githooks" folder:**
 
